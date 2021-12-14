@@ -36,10 +36,9 @@ We received the test accuracy of 41% which is quite bad.
 
 ### c. Train using pre-trained model:
 
-For this problem, I decided to use `ResNet18` as transfer learning does significantly improve the performance and reduces the training time. https://ai.googleblog.com/2019/12/understanding-transfer-learning-for.html
+For this problem, I decided to use `ResNet18` as transfer learning does significantly improve the performance and reduces the training time. 
 
 The approach was the same for this problem as well. I have uploaded the file `FineTuning_RA.ipynb`. I didn't resize the image as I ran this code on colab and I didn't wanna miss any significant information in this approach. Unfortunately, as dataset was updated at the last moment, I couldn't make visualization after the updates as my colab was overused by then. But I have provided the saved_model `CNS_final_tuning.pth` which I trained before the dataset was updated. I was getting around 75% accuracy for training and 60% accuracy for test.
-
 
 
 
