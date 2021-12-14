@@ -48,6 +48,8 @@ I decided to use t-SNE to visualize the data.
 
 <img src="t-SNE.png" width="400">
 
+I have added the file `TSNE.ipynb` to refer.
+
 I haven't added the legends yet because I was out of colab limit. Sorry for this blunder. 
 
 
