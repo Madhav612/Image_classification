@@ -42,4 +42,11 @@ The approach was the same for this problem as well. I have uploaded the file `Fi
 
 
 
+## 2 Visualization
+
+I decided to use t-SNE to visualize the data.
+
+<img src="t-SNE.png" width="400">
+
+
 
