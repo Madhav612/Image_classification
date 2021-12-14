@@ -16,21 +16,21 @@ Here, I kept batch size as 4 and I tried with larger batch size but the results 
 I decided to make simple CNN model without adding more layers and making it complex since I had limited resources available and I had already used google colab a lot in last few days. I tried using IU server's but dataset was huge so I didn't find an appropriate server with CUDA support and storage options. 
 
 <!-- ![CNN Graph](CNN_graph.png ) -->
-<img src="CNN_graph.png" width="400">
+<img src="images/CNN_graph.png" width="400">
 
 I used SGD optimizer and cross-entropy loss function with learning rate as 0.0025 and 0.9 as momentum. I did't have time to optimize these hyperparameters but we can use optuna or reytune to optimize them to get better result.
 
 This is the accuracy of the training data which is quite low but as suggested, more complex model would have given much better results.
 
-<img src="accuracy.png" width="400">
+<img src="images/accuracy.png" width="400">
 
 Below, is the classification report:
 
-<img src="classification_report.png" width="400">
+<img src="images/classification_report.png" width="400">
 
 Also, we have confusion matrix to compare the test result:
 
-<img src="confusion_matrix.png" width="400">
+<img src="images/confusion_matrix.png" width="400">
 
 We received the test accuracy of 41% which is quite bad.
 
@@ -44,12 +44,19 @@ The approach was the same for this problem as well. I have uploaded the file `Fi
 
 ## 2 Visualization
 
-I decided to use t-SNE to visualize the data.
+I decided to use t-SNE to visualize the data. This is the plot for train dataset. From the graph, we can analyze that lymph_node and spleen have somewhat similar features and model is not able to clearly distinguish between them. Which can be seen in the images as well as these two looks almost same from the perpective of inexperienced observer. Tissues of Liver is also proven quite difficult to distinguish as it is scattered all over the graph. This is also evident in confusion matrix.
 
-<img src="t-SNE.png" width="400">
+<img src="images/t-SNE.png" width="400">
 
-I have added the file `TSNE.ipynb` to refer.
+I have also plotted the t-SNE for test data, and below is the result. Even in the test dataset, it is having difficulties to distinguish between lymph_node tissue and spleen tissue. 
 
-I haven't added the legends yet because I was out of colab limit. Sorry for this blunder. 
+<img src="images/t-SNE_test.png" width="400">
+
+## 3 Explanation has been given in part 1 and part 2
+
+## 4 Research paper summary is file `summary_RA.pdf`
+
+
+
 
 
