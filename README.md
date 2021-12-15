@@ -38,8 +38,21 @@ We received the test accuracy of 41% which is quite bad.
 
 For this problem, I decided to use `ResNet18` as transfer learning does significantly improve the performance and reduces the training time. 
 
-The approach was the same for this problem as well. I have uploaded the file `FineTuning_RA.ipynb`. I didn't resize the image as I ran this code on colab and I didn't wanna miss any significant information in this approach. Unfortunately, as dataset was updated at the last moment, I couldn't make visualization after the updates as my colab was overused by then. But I have provided the saved_model `CNS_final_tuning.pth` which I trained before the dataset was updated. I was getting around 75% accuracy for training and 60% accuracy for test.
+The approach was the same for this problem as well. I have uploaded the file `FineTuning_RA.ipynb`. I decided to use resize the image to 512*512 pixels as I thought that it was a good trade-off between computing power and preserving information of images. I added a new layes on top of the `ResNet18` and used cross-entropy function which incorporated softax activation function which is what we wanted to train multi-class classification model. Again, I'm using Stochastic gradient descent as my optimizer fucntion. I am also using `lr_scheduler` for adjusting the learning rate based on the number of epochs as learning rate is an important hyperparameter for good model performance. Though I didn't have time to change other hyperparameters.
 
+To analyze how our model did, I plotted the accuracy score and loss score same as we did in the part b.
+
+<img src="images/accuracy_loss.png" width="400">
+
+We are getting training accuracy of around 77% and test accuracy of around 67%. As before there was only training dataset, I divided the train dataset into train data and test data with the split of 0.8 and 0.2 so I had to train the model again. The accuracy can be improved if we run the model for more epochs.
+
+Here is the classification report created: As we can see that spleen performed extremely poorly and we would analyze why it performed poorly in the confusion matrix.
+
+<img src="images/classification_report_Fine.png" width="400">
+
+Here is the confusion matrix: Here, we can see that spleen is falsely classified as lymph_node and we will see why that is the case in t-SNE.
+
+<img src="images/confusion_matrix_fine.png" width="600">
 
 
 ## 2 Visualization
@@ -50,7 +63,14 @@ I decided to use t-SNE to visualize the data. This is the plot for train dataset
 
 I have also plotted the t-SNE for test data, and below is the result. Even in the test dataset, it is having difficulties to distinguish between lymph_node tissue and spleen tissue. 
 
-<img src="images/t-SNE_test.png" width="400">
+<img src="images/t-SNE_test.png" width="400" >
+
+
+Here are Spleen tissues and lymph_node tissues:
+
+<img src="images/spleen.png" width="400"><img src="images/lymph_node.png" width="400">
+
+
 
 ## 3 Explanation has been given in part 1 and part 2
 
